@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <link rel="stylesheet" href="style.css">
+
+  <script
+  src="https://code.jquery.com/jquery-3.6.0.min.js"
+  integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+  crossorigin="anonymous"></script>
+
+<body>
+<h4 id="test" >안녕하세요</h4>
+<img class="img"src="#" alt="jeong" />
+
+</body>
+<script>
+    //jquery 에서 html() => innerHTML 이다
+    $('#test').html('안녕');
+    //css( value1','value2') 이렇게 사용해서 css를 줄수있다
+    $('#test').css('color','red');
+    //jquery로 html 다른거 변경하려면 attr() 사용
+    $('.img').attr('src','https://source.unsplash.com/random');
+    //jquery에서 class를 추가하려면 classList에서 add가 아니라 그냥 addClass를 사용하면 된다
+    $('#test').addClass('yellow-bg');
+</script>
+
+</html>

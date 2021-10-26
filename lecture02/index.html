@@ -1,0 +1,57 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<script
+src="https://code.jquery.com/jquery-3.6.0.min.js"
+integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+crossorigin="anonymous"></script>
+<body>
+    <p class="greeting">안녕하세요</p>
+    <p class="greeting">안녕하세요</p>
+    <p class="greeting">안녕하세요</p>
+
+    <button class="btn">버튼</button>
+    <button class="btn">버튼</button>
+    <button class="btn">버튼</button>
+</body>
+<script>
+    //vanilla javascript는 전부 다 써줘야 한다 하나하나 씩 해줘야 한다
+    //document.getElementsByClassName('greeting')[0].innerHTML = '안녕';
+
+    //jquery는 일단 간략하게 쓸수있고
+    //여러가지를 한번에 변경할수있다는 장점이 있다
+    $('.greeting').html('안녕');
+
+    //한가지만 변경하고 싶다면 eq를 사용해서 만들면 된다
+    $('.greeting').eq(0).html('hello');
+
+    //document.getElementsByClassName('btn')[0].addEventListener();
+    //document.getElementsByClassName('btn')[1].addEventListener();
+    //document.getElementsByClassName('btn')[2].addEventListener();
+    
+    //jquery는 이벤트 리스너를 많이 사용하고 싶을때 이렇게 태그를 하나 더 추가할수있다
+    $('.btn').on('click','h4',function(){
+        console.log('hello');
+    })
+
+    document.getElementsByClassName('btn')[0].addEventListener('click',function(){
+        document.getElementsByClassName('greeting')[0].style.display = 'none';
+    });
+
+    $('.btn').on('click',function(){
+        $('.greeting').slideUp();
+    });
+
+    $('.btn').eq(1).on('click',function(){
+        $('.greeting').slideDown();
+    });
+
+</script>
+</html>
+

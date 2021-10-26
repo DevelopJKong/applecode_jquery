@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<script
+src="https://code.jquery.com/jquery-3.6.0.min.js"
+integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+crossorigin="anonymous"></script>
+<link rel="stylesheet" href="bootstrap.css">
+<body>
+    <p>서버: 접속자 요청을 하면 데이터를 갖다줌(웨이터에서 유래됨)</p>
+    <p>요청: GET / POST</p>
+
+    <p>GET: URL을 입력해서 요청함 (읽기)</p>
+    <p>POST: 숨겨서 뭔가 정보를 전달하거나 요청함 (쓰기)</p>
+
+    <p>AJAX: 서버에다가 GET/POST 요청을 할 수 있게 도와주는데</p>
+    <p>새로고침없이 요청 할 수 있음</p>
+    <h4 id="hello">임시글씨</h4>
+    <button class="btn btn-danger">버튼</button>
+
+</body>
+<script>
+// fail(function(){
+// 
+// }).always(function(){
+// 
+// });
+// fail &  always 에 대해서 확실하게 알아두기
+
+
+    //done 함수는 ajax가 연결이 성공했을때 가지고 오는 함수를 done() 이라고 표현
+    $.ajax({
+        url:'https://codingapple1.github.io/hello.txt',
+        type: 'GET' 
+    }).done(function(데이터){
+        console.log(데이터);
+    });
+    $('.btn.btn-danger').click(function () {
+        $.ajax({
+            url:'https://codingapple1.github.io/hello.txt',
+            type: 'GET'
+        }).done(function(데이터){
+                $('#hello').html(데이터);
+        })
+    });
+
+
+</script>
+</html>

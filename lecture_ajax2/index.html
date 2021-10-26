@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="bootstrap.css" />
+  </head>
+  <style>
+    .close {
+      color: #fff;
+      background-color: #dc3545;
+      border-color: #dc3545;
+    }
+  </style>
+
+  <script
+    src="https://code.jquery.com/jquery-3.6.0.min.js"
+    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+    crossorigin="anonymous"
+  ></script>
+  <body>
+    <div class="card">
+      <img src="" class="card-img-top" />
+      <div class="card-body">
+        <h5 class="card-title">임시 제목</h5>
+        <p class="card-text">임시 가격</p>
+        <a href="#" class="btn btn-primary">더 알아보기</a>
+      </div>
+    </div>
+
+    <button class="btn btn-danger">상품을 불러오는 버튼</button>
+    <button class="btn close">상품 닫는 버튼</button>
+  </body>
+  <script>
+    $(".btn-danger").click(function () {
+      $.ajax({
+        url: "https://codingapple1.github.io/data.json",
+        type: "GET",
+      }).done(function (데이터) {
+        $(".card-title").html(데이터.model);
+        $(".card-text").html(데이터.price);
+        $(".card-img-top").attr("src", 데이터.img);
+      });
+    });
+
+    $(".close").click(function () {
+      $.ajax({
+        url: "https://codingapple1.github.io/data.json",
+        type: "GET",
+      }).done(function (데이터) {
+        $(".card-title").html("");
+        $(".card-text").html("");   
+        $(".card-img-top").attr("src", "");
+      });
+    });
+  </script>
+</html>
