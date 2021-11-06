@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>question2</title>
+</head>
+<script
+src="https://code.jquery.com/jquery-3.6.0.min.js"
+integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+crossorigin="anonymous"
+></script>
+<body>
+    <div>
+        <form>
+         <label for="number">게임!</label>
+         <input type="text" name="number" class="googoo"/>
+         <button class="btn">제출</button>   
+        </form>
+    </div>
+</body>
+<script>
+    //왜 변수에 담아서 할수는 없는거지? 그래야 조금 더 편할거 같은데
+    //이유는 이벤트 핸들러 안에 있어야 쓸수있는거였다
+
+    $('.btn').on('click',function(){
+        let number = $('.googoo').val();
+        if(number % 3 === 0) {
+            alert('3의 배수입니다');
+        } else {
+            alert('3의 배수가 아닙니다');
+        }
+    })
+
+</script>
+</html>
